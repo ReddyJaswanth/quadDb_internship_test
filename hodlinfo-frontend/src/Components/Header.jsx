@@ -42,10 +42,12 @@ function Header() {
   return (
     <div className="block md:flex md:justify-between pl-20 pt-10 pr-20 items-center w-full">
       {/* Header content */}
-      <h1 className="text-primary-color text-4xl font-bold">HODLINFO</h1>
+      <h1 className="text-primary-color text-4xl font-bold text-center">
+        HODLINFO
+      </h1>
 
       {/* Dropdown and buttons section */}
-      <div className="flex justify-center md:flex-row gap-4 items-center mt-4 md:mt-0">
+      <div className="flex justify-center flex-wrap gap-4 items-center mt-4 md:mt-0">
         {/* Dropdown button for currency selection */}
         <button
           id="dropdownHoverButton"

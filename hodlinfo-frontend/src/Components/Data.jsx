@@ -41,7 +41,7 @@ function Data() {
   };
 
   return (
-    <div className="flex justify-center m-5 w-full">
+    <div className="flex justify-center m-5 w-full overflow-auto">
       <table className="w-full text-2xl border-spacing-y-5 border-separate text-center">
         {/* Header row for displaying column names */}
         <thead className="text-gray-400">
