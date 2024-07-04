@@ -40,7 +40,7 @@ function Header() {
   }, [seconds]); // Trigger effect when 'seconds' state changes
 
   return (
-    <div className="block mx-auto md:flex md:justify-between p-8 items-center text-center">
+    <div className="block md:flex md:justify-between pl-20 pt-10 pr-20 items-center w-full">
       {/* Header content */}
       <h1 className="text-primary-color text-4xl font-bold">HODLINFO</h1>
 
@@ -51,7 +51,7 @@ function Header() {
           id="dropdownHoverButton"
           onMouseEnter={toggleDropdown}
           onMouseLeave={toggleDropdown}
-          className="text-white bg-secondary-color hover:bg-gray-800 font-medium rounded-xl text-sm px-5 py-2.5 text-center flex gap-1 items-center"
+          className="text-white bg-slate-400 hover:bg-gray-800 font-medium rounded-xl text-sm px-5 py-2.5 text-center flex gap-1 items-center"
           type="button"
         >
           <p>INR</p>
@@ -73,7 +73,7 @@ function Header() {
           id="dropdownHoverButton"
           onMouseEnter={toggleDropdown}
           onMouseLeave={toggleDropdown}
-          className="text-white bg-secondary-color hover:bg-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center flex gap-1 items-center"
+          className="text-white bg-slate-400 hover:bg-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center flex gap-1 items-center"
           type="button"
         >
           <p>BTC</p>
@@ -93,7 +93,7 @@ function Header() {
         {/* Button for 'Buy BTC' */}
         <button
           id="dropdownHoverButton"
-          className="text-white bg-secondary-color hover:bg-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+          className="text-white bg-slate-400 hover:bg-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
           type="button"
         >
           Buy BTC

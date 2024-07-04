@@ -6,14 +6,12 @@ import Stats from "./Components/Stats";
 
 function App() {
   return (
-    <>
-      <div className="bg-hodlinfo-dark">
-        <Header />
-        <Stats />
-        <Data />
-        <Footer />
-      </div>
-    </>
+    <div className="w-full flex-col items-center">
+      <Header />
+      <Stats />
+      <Data />
+      <Footer />
+    </div>
   );
 }
 

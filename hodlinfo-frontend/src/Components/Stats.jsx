@@ -3,7 +3,7 @@ import React from "react";
 function Stats() {
   return (
     // Section container with padding and responsiveness classes
-    <section className="py-2 sm:py-3 lg:py-6">
+    <div className="mt-4">
       {/* Container for content with max width and padding */}
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         {/* Text center aligned heading */}
@@ -90,7 +90,7 @@ function Stats() {
           Average BTC/INR net price including Commission
         </p>
       </div>
-    </section>
+    </div>
   );
 }
 

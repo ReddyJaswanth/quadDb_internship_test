@@ -41,84 +41,109 @@ function Data() {
   };
 
   return (
-    <>
-      {/* Header row for displaying column names */}
-      <div className="grid text-gray-500 mx-auto grid-cols-1 gap-1 px-6 mt-3 sm:px-5 lg:mt-4 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-3 xl:mx-12 items-center justify-center">
-        <p className="text-center font-bold">#</p>
-        <p className="text-center font-bold">Platform</p>
-        <p className="text-center font-bold">Last Traded Price</p>
-        <p className="text-center font-bold">Buy And Sell Price</p>
-        <p className="text-center font-bold">Difference</p>
-        <p className="text-center font-bold">Savings</p>
-      </div>
+    <div className="flex justify-center m-5 w-full">
+      <table className="w-full text-2xl border-spacing-y-5 border-separate text-center">
+        {/* Header row for displaying column names */}
+        <thead className="text-gray-400">
+          <tr>
+            <th>
+              <h4 className="text-center font-bold">#</h4>
+            </th>
+            <th>
+              <h4 className="text-center font-bold">Platform</h4>
+            </th>
+            <th>
+              <h4 className="text-center font-bold">Last Traded Price</h4>
+            </th>
+            <th>
+              <h4 className="text-center font-bold">Buy And Sell Price</h4>
+            </th>
+            <th>
+              <h4 className="text-center font-bold">Difference</h4>
+            </th>
+            <th>
+              <h4 className="text-center font-bold">Savings</h4>
+            </th>
+          </tr>
+        </thead>
 
-      {/* List of ticker items */}
-      <ul>
-        {tickers.slice(0, 10).map((ticker, index) => (
-          <li key={ticker.id}>
-            {/* Individual ticker item row */}
-            <div className="grid bg-secondary-color p-2 text-gray-100 rounded-md mx-auto grid-cols-1 gap-1 px-6 mt-3 sm:px-0 lg:mt-4 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-3 xl:mx-12 items-center justify-center">
-              <p className="text-center font-bold">{index + 1}</p>
-              <p className="text-center font-bold">{ticker.name}</p>
-              <p className="text-center font-bold">
-                {formatCurrency(ticker.last)}
-              </p>
-              <p className="text-center font-bold">
-                {formatCurrency(ticker.buy)} / {formatCurrency(ticker.sell)}
-              </p>
+        {/* List of ticker items */}
+        <tbody className="text-gray-50">
+          {tickers.slice(0, 10).map((ticker, index) => (
+            <tr key={index} className="bg-secondary-color">
+              <td className="p-3 rounded-s-lg">
+                <h4 className="text-center font-bold">{index + 1}</h4>
+              </td>
+              <td>
+                <h4 className="text-center font-bold">{ticker.name}</h4>
+              </td>
+              <td>
+                <h4 className="text-center font-bold">
+                  {formatCurrency(ticker.last)}
+                </h4>
+              </td>
+              <td>
+                <h4 className="text-center font-bold">
+                  {formatCurrency(ticker.buy)} / {formatCurrency(ticker.sell)}
+                </h4>
+              </td>
               {/* Display percentage difference with corresponding icon */}
-              <p className="text-center font-bold flex justify-center align-middle gap-3">
-                {diff(ticker) > 0 ? (
-                  <p className="text-primary-color">{diff(ticker)} %</p>
-                ) : (
-                  <p className="text-red-500">{diff(ticker)} %</p>
-                )}
-              </p>
+              <td>
+                <h4 className="text-center font-bold flex justify-center align-middle gap-3">
+                  {diff(ticker) > 0 ? (
+                    <p className="text-primary-color">{diff(ticker)} %</p>
+                  ) : (
+                    <p className="text-red-500">{diff(ticker)} %</p>
+                  )}
+                </h4>
+              </td>
               {/* Display savings with corresponding icon */}
-              <p className="text-center font-bold flex justify-center align-middle gap-2">
-                {Savings(ticker) > 0 ? (
-                  <>
-                    <span className="text-primary-color">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="bi bi-caret-up-fill"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
-                      </svg>
-                    </span>
-                    <span className="text-primary-color">
-                      {formatCurrency(Savings(ticker))}
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <span className="text-red-600">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="bi bi-caret-down-fill"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                      </svg>
-                    </span>
-                    <span className="text-red-600">
-                      {formatCurrency(Savings(ticker))}
-                    </span>
-                  </>
-                )}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </>
+              <td>
+                <h4 className="text-center font-bold flex justify-center align-middle gap-2">
+                  {Savings(ticker) > 0 ? (
+                    <>
+                      <span className="text-primary-color">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          className="bi bi-caret-up-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                        </svg>
+                      </span>
+                      <span className="text-primary-color">
+                        {formatCurrency(Savings(ticker))}
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-red-600">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          className="bi bi-caret-down-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                        </svg>
+                      </span>
+                      <span className="text-red-600">
+                        {formatCurrency(Savings(ticker))}
+                      </span>
+                    </>
+                  )}
+                </h4>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
