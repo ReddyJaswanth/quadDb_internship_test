@@ -5,7 +5,7 @@ function Data() {
 
   useEffect(() => {
     // Fetch data from the API endpoint when the component mounts
-    fetch("http://localhost:3000/api/dbtickers")
+    fetch("https://holdlinfo-backend.onrender.com/api/dbtickers")
       .then((response) => response.json()) // Parse the response as JSON
       .then((data) => {
         setTickers(data); // Update the state with the fetched data
