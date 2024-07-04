@@ -20,7 +20,7 @@ function Header() {
 
         // Perform backend reload when 7 seconds are remaining
         if (seconds === 7) {
-          fetch("http://localhost:3000/api/top10tickers") // Fetch data from backend API
+          fetch("https://holdlinfo-backend.onrender.com/api/top10tickers") // Fetch data from backend API
             .catch((error) => {
               console.error("Error during backend reload:", error);
               // Handle fetch error if needed

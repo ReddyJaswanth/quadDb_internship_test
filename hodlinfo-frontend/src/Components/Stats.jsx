@@ -33,7 +33,7 @@ function Stats() {
           </div>
 
           {/* Second grid item */}
-          <div className="overflow-hidden   rounded-lg">
+          <div className="overflow-hidden rounded-lg">
             <div className="px-4 py-6">
               <h4 className="text-4xl font-bold text-center text-primary-color">
                 0.9 %
