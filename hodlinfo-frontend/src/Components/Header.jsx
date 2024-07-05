@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "../App.css"; // Import CSS file for styling
-
 function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State to manage dropdown visibility
 
@@ -29,9 +27,8 @@ function Header() {
       } else {
         // Clear timer interval when countdown reaches 0
         clearInterval(timer);
-
-        // Refresh the frontend page after timer expires
-        window.location.reload(); // This will reload the page
+        window.location.reload();
+        // Refresh the frontend page after timer expires // This will reload the page
         setSeconds(60); // Reset timer value if needed after page reload
       }
     }, 1000); // Run the timer countdown every 1000ms (1 second)

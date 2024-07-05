@@ -1,35 +1,31 @@
 import React, { useState, useEffect } from "react";
 
 function Data() {
-  const [tickers, setTickers] = useState([]); // State to hold fetched ticker data
+  const [tickers, setTickers] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the API endpoint when the component mounts
     fetch("https://holdlinfo-backend.onrender.com/api/dbtickers")
-      .then((response) => response.json()) // Parse the response as JSON
+      .then((response) => response.json())
       .then((data) => {
-        setTickers(data); // Update the state with the fetched data
+        setTickers(data);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error); // Log any errors that occur during fetch
+        console.error("Error fetching data:", error);
       });
-  }, []); // Empty dependency array ensures this effect runs only once on component mount
+  }, []);
 
-  // Calculate the percentage difference between sell and buy prices
   const diff = (ticker) => {
     let diff = ticker.sell - ticker.buy;
     let ans = (diff * 100) / ticker.buy;
     return ans.toFixed(2);
   };
 
-  // Calculate total savings based on volume and price difference
   const Savings = (ticker) => {
     let diff = ticker.sell - ticker.buy;
     let ans = diff * ticker.volume;
     return ans.toFixed(2);
   };
 
-  // Format a number as currency using Intl.NumberFormat
   const formatCurrency = (value) => {
     const formatter = new Intl.NumberFormat("en-IN", {
       style: "currency",
@@ -43,7 +39,6 @@ function Data() {
   return (
     <div className="flex justify-center m-5 w-full overflow-auto">
       <table className="w-full text-2xl border-spacing-y-5 border-separate text-center">
-        {/* Header row for displaying column names */}
         <thead className="text-gray-400">
           <tr>
             <th>
@@ -66,11 +61,9 @@ function Data() {
             </th>
           </tr>
         </thead>
-
-        {/* List of ticker items */}
         <tbody className="text-gray-50">
           {tickers.slice(0, 10).map((ticker, index) => (
-            <tr key={index} className="bg-secondary-color">
+            <tr key={index} className="bg-gray-500">
               <td className="p-3 rounded-s-lg">
                 <h4 className="text-center font-bold">{index + 1}</h4>
               </td>
@@ -87,7 +80,6 @@ function Data() {
                   {formatCurrency(ticker.buy)} / {formatCurrency(ticker.sell)}
                 </h4>
               </td>
-              {/* Display percentage difference with corresponding icon */}
               <td>
                 <h4 className="text-center font-bold flex justify-center align-middle gap-3">
                   {diff(ticker) > 0 ? (
@@ -97,7 +89,6 @@ function Data() {
                   )}
                 </h4>
               </td>
-              {/* Display savings with corresponding icon */}
               <td>
                 <h4 className="text-center font-bold flex justify-center align-middle gap-2">
                   {Savings(ticker) > 0 ? (
